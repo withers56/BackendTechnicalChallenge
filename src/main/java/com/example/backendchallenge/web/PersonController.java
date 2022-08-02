@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 
 @AllArgsConstructor
 
@@ -35,5 +36,23 @@ public class PersonController {
         personRepository.save(personToAdd);
 
         System.out.println("person added");
+    }
+
+    @PutMapping("updatePerson/{personId}")
+    private void updatePerson(@PathVariable Long personId, @RequestBody Person updatedPerson) {
+
+        Optional<Person> personToUpdate = personRepository.findById(personId);
+        if (personToUpdate.isPresent()) {
+            personToUpdate.get().setFirstName(updatedPerson.getFirstName());
+            personToUpdate.get().setLastName(updatedPerson.getLastName());
+            personToUpdate.get().setDateUpdated(LocalDate.now());
+
+            personRepository.save(personToUpdate.get());
+        }
+    }
+
+    @DeleteMapping("deletePerson/{personId}")
+    private void deletePerson(@PathVariable Long personId) {
+        personRepository.deleteById(personId);
     }
 }
