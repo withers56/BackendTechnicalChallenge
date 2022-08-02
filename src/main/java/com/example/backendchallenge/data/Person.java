@@ -5,6 +5,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.Date;
 
 @Getter
 @Setter
@@ -28,10 +29,13 @@ public class Person {
     private Long id;
 
     @Column(nullable = false)
-    private String name;
+    private String firstName;
 
     @Column(nullable = false)
-    private Integer age;
+    private String lastName;
+
+    @Column(nullable = false)
+    private LocalDate dob;
 
     @Column(nullable = false)
     private LocalDate dateJoined;

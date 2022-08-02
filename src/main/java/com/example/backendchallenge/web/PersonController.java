@@ -3,11 +3,9 @@ package com.example.backendchallenge.web;
 import com.example.backendchallenge.data.Person;
 import com.example.backendchallenge.data.PersonRepository;
 import lombok.AllArgsConstructor;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @AllArgsConstructor
@@ -22,5 +20,20 @@ public class PersonController {
     @GetMapping
     private List<Person> getAllPersons () {
         return personRepository.findAll();
+    }
+
+    @PostMapping("addPerson")
+    private void addPerson(@RequestBody Person newPerson) {
+
+        Person personToAdd = new Person();
+
+        personToAdd.setDob(newPerson.getDob());
+        personToAdd.setFirstName(newPerson.getFirstName());
+        personToAdd.setLastName(newPerson.getLastName());
+        personToAdd.setDateJoined(LocalDate.now());
+
+        personRepository.save(personToAdd);
+
+        System.out.println("person added");
     }
 }
