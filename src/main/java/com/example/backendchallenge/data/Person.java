@@ -1,6 +1,7 @@
 package com.example.backendchallenge.data;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
 
 import javax.persistence.*;
@@ -42,4 +43,9 @@ public class Person {
 
     @Column
     private LocalDate dateUpdated;
+
+
+    @ManyToOne
+    @JsonIgnoreProperties({"personsWithJob"})
+    private Job job;
 }
