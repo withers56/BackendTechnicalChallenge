@@ -9,6 +9,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @AllArgsConstructor
 
@@ -35,7 +36,15 @@ public class JobController {
           jobRepository.save(newJob);
      }
 
+     @PutMapping("{jobId}")
+     private void updateJob(@PathVariable Long jobId, @RequestBody Job updatedJob) {
+          Optional<Job> jobToUpdate = jobRepository.findById(jobId);
 
+          jobToUpdate.get().setJobTitle(updatedJob.getJobTitle());
+          jobToUpdate.get().setSalary(updatedJob.getSalary());
+
+          jobRepository.save(jobToUpdate.get());
+     }
 
 
      @DeleteMapping("{jobId}")
