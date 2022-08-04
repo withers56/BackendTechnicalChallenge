@@ -2,6 +2,7 @@ package com.example.backendchallenge.web;
 
 import com.example.backendchallenge.data.Person;
 import com.example.backendchallenge.data.PersonRepository;
+import jdk.swing.interop.SwingInterOpUtils;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -43,8 +44,10 @@ public class PersonController {
 
         Optional<Person> personToUpdate = personRepository.findById(personId);
         if (personToUpdate.isPresent()) {
+
             personToUpdate.get().setFirstName(updatedPerson.getFirstName());
             personToUpdate.get().setLastName(updatedPerson.getLastName());
+            personToUpdate.get().setDob(updatedPerson.getDob());
             personToUpdate.get().setDateUpdated(LocalDate.now());
 
             personRepository.save(personToUpdate.get());
