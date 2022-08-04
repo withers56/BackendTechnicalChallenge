@@ -6,10 +6,7 @@ import com.example.backendchallenge.data.JobRepository;
 import com.example.backendchallenge.data.View;
 import com.fasterxml.jackson.annotation.JsonView;
 import lombok.AllArgsConstructor;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -31,5 +28,18 @@ public class JobController {
      @GetMapping("jobsAndPeople")
      private List<Job> getJobsAndPeople() {
           return jobRepository.findAll();
+     }
+
+     @PostMapping
+     private void addJob (@RequestBody Job newJob) {
+          jobRepository.save(newJob);
+     }
+
+
+
+
+     @DeleteMapping("{jobId}")
+     private void deleteJob (@PathVariable Long jobId) {
+          jobRepository.deleteById(jobId);
      }
 }
