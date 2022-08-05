@@ -1,5 +1,7 @@
 package com.example.backendchallenge.web;
 
+import com.example.backendchallenge.data.Job;
+import com.example.backendchallenge.data.JobRepository;
 import com.example.backendchallenge.data.Person;
 import com.example.backendchallenge.data.PersonRepository;
 import jdk.swing.interop.SwingInterOpUtils;
@@ -18,6 +20,7 @@ import java.util.Optional;
 public class PersonController {
 
     private final PersonRepository personRepository;
+    private final JobRepository jobRepository;
 
     @GetMapping
     private List<Person> getAllPersons () {
@@ -52,6 +55,19 @@ public class PersonController {
 
             personRepository.save(personToUpdate.get());
         }
+    }
+
+    @PutMapping("updateJob")
+    private void updatePersonJob(@RequestParam Long personId, @RequestParam Long jobId) {
+        System.out.println("Persons id: " + personId);
+        System.out.println("Jobs id: " + jobId);
+
+        Optional<Person> personToUpdate = personRepository.findById(personId);
+        Optional<Job> jobToAdd = jobRepository.findById(jobId);
+
+        personToUpdate.get().setJob(jobToAdd.get());
+
+        personRepository.save(personToUpdate.get());
     }
 
     @DeleteMapping("deletePerson/{personId}")
