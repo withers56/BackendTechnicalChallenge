@@ -49,8 +49,14 @@ export default function Register(props) {
                         <input type="text" class="form-control background-card-dark" id="username" aria-describedby="emailHelp">
                         
                       <div class="mb-3">
-                        <label for="email" class="form-label">Email</label>
-                        <input type="email" class="form-control background-card-dark" id="email" aria-describedby="emailHelp">
+                        <label for="first" class="form-label">Firstname</label>
+                        <input type="email" class="form-control background-card-dark" id="first" aria-describedby="emailHelp">
+                        
+                        <label for="last" class="form-label">Lastname</label>
+                        <input type="email" class="form-control background-card-dark" id="last" aria-describedby="emailHelp">
+                        
+                        <label for="dob" class="form-label">DOB</label>
+                        <input type="date" class="form-control background-card-dark" id="dob" aria-describedby="emailHelp">
                         
                       <div class="mb-3">
                         <label for="password" class="form-label">Password</label>
@@ -75,13 +81,17 @@ export function RegisterEvent(){
     $("#register-btn").click(function(){
 
         const username = $("#username").val();
-        const email = $("#email").val();
+        const firstName = $("#first").val();
+        const lastName = $("#last").val();
         const password = $("#password").val()
+        const dob = $("#dob").val();
 
         let newUser = {
             username,
-            email,
-            password
+            firstName,
+            lastName,
+            password,
+            dob
         }
 
         console.log(newUser);
@@ -92,7 +102,7 @@ export function RegisterEvent(){
             body: JSON.stringify(newUser)
         }
 
-        fetch("http://localhost:8080/api/users/create", request)
+        fetch("http://localhost:8080/backendChallenge/persons/addPerson", request)
             .then(response => {
                 console.log(response.status);
                 CreateView("/");

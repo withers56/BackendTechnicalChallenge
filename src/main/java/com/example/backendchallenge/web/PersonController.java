@@ -6,6 +6,7 @@ import com.example.backendchallenge.data.Person;
 import com.example.backendchallenge.data.PersonRepository;
 import jdk.swing.interop.SwingInterOpUtils;
 import lombok.AllArgsConstructor;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
@@ -21,6 +22,7 @@ public class PersonController {
 
     private final PersonRepository personRepository;
     private final JobRepository jobRepository;
+    private final PasswordEncoder passwordEncoder;
 
     @GetMapping
     private List<Person> getAllPersons () {
@@ -32,10 +34,16 @@ public class PersonController {
 
         Person personToAdd = new Person();
 
+        personToAdd.setUsername(newPerson.getUsername());
+
+        String encryptedPassword = passwordEncoder.encode(newPerson.getPassword());
+        personToAdd.setPassword(encryptedPassword);
+
         personToAdd.setDob(newPerson.getDob());
         personToAdd.setFirstName(newPerson.getFirstName());
         personToAdd.setLastName(newPerson.getLastName());
         personToAdd.setDateJoined(LocalDate.now());
+        personToAdd.setRole(Person.Role.USER);
 
         personRepository.save(personToAdd);
 
