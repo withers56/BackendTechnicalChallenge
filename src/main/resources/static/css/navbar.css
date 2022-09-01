@@ -1,108 +1,108 @@
-body {
-    /*background-color: white;*/
-    /*color: black;*/
-    background-color: #121212;
-    color: #FFFFFF;
-}
+/*body {*/
+/*    !*background-color: white;*!*/
+/*    !*color: black;*!*/
+/*    background-color: #121212;*/
+/*    color: #FFFFFF;*/
+/*}*/
 
-nav {
-    /*background-color:  #a8d0e6;*/
-    /*font-size: 1.25em;*/
-}
+/*nav {*/
+/*    !*background-color:  #a8d0e6;*!*/
+/*    !*font-size: 1.25em;*!*/
+/*}*/
 
-.no-focus:focus {
+/*.no-focus:focus {*/
 
-}
-
-
-nav a {
-    padding: 0 .5em;
-    color: #FFFFFF;
-    /*color: black;*/
-    text-decoration: none;
-}
-
-nav a:hover {
-    color: #FFFFFF;
-    opacity: .75;
-}
-
-.author-categories {
-    width: 25%;
-}
-
-.categories a {
-    font-size: .75em;
-    color: #FFFFFF;
-    opacity: .8;
-}
-
-.create-input {
-    width: 100%;
-    border: 1px solid #FFFFFF;
-    border-radius: 5px;
-    padding: .375rem .75rem;
-    color: #FFFFFF;
-}
+/*}*/
 
 
-.navbar {
-    /*background-color: #a8d0e6;*/
-    color: #FFFFFF;
-}
+/*nav a {*/
+/*    padding: 0 .5em;*/
+/*    color: #FFFFFF;*/
+/*    !*color: black;*!*/
+/*    text-decoration: none;*/
+/*}*/
 
-.nav-link {
-    color: #FFFFFF;
-}
+/*nav a:hover {*/
+/*    color: #FFFFFF;*/
+/*    opacity: .75;*/
+/*}*/
 
-.card {
-}
+/*.author-categories {*/
+/*    width: 25%;*/
+/*}*/
 
-.card-header{
-}
+/*.categories a {*/
+/*    font-size: .75em;*/
+/*    color: #FFFFFF;*/
+/*    opacity: .8;*/
+/*}*/
 
-.card-body {
-}
+/*.create-input {*/
+/*    width: 100%;*/
+/*    border: 1px solid #FFFFFF;*/
+/*    border-radius: 5px;*/
+/*    padding: .375rem .75rem;*/
+/*    color: #FFFFFF;*/
+/*}*/
 
-.form-select {
-    width: 25%;
-    background-color: #404040;
-    color: #FFFFFF;
-}
 
-.register-card {
-    top: 4em;
-}
+/*.navbar {*/
+/*    !*background-color: #a8d0e6;*!*/
+/*    color: #FFFFFF;*/
+/*}*/
 
-.login-card {
-    top: 4em;
-}
+/*.nav-link {*/
+/*    color: #FFFFFF;*/
+/*}*/
 
-.profile-password {
-    background-color: black;
-    width: min-content;
-}
+/*.card {*/
+/*}*/
 
-.profile-password:hover {
-    background-color: white;
-}
+/*.card-header{*/
+/*}*/
 
-.background-dark {
-    background-color: #121212;
-}
+/*.card-body {*/
+/*}*/
 
-.background-bar-dark {
-    background-color: #282828;
-}
+/*.form-select {*/
+/*    width: 25%;*/
+/*    background-color: #404040;*/
+/*    color: #FFFFFF;*/
+/*}*/
 
-.background-btn-dark {
-    background-color: #181818;
-}
+/*.register-card {*/
+/*    top: 4em;*/
+/*}*/
 
-.background-card-dark {
-    background-color: #404040;
-}
+/*.login-card {*/
+/*    top: 4em;*/
+/*}*/
 
-.register-card{
-    color: #FFFFFF;
-}
+/*.profile-password {*/
+/*    background-color: black;*/
+/*    width: min-content;*/
+/*}*/
+
+/*.profile-password:hover {*/
+/*    background-color: white;*/
+/*}*/
+
+/*.background-dark {*/
+/*    background-color: #121212;*/
+/*}*/
+
+/*.background-bar-dark {*/
+/*    background-color: #282828;*/
+/*}*/
+
+/*.background-btn-dark {*/
+/*    background-color: #181818;*/
+/*}*/
+
+/*.background-card-dark {*/
+/*    background-color: #404040;*/
+/*}*/
+
+/*.register-card{*/
+/*    color: #FFFFFF;*/
+/*}*/
