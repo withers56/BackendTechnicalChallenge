@@ -106,3 +106,8 @@
 /*.register-card{*/
 /*    color: #FFFFFF;*/
 /*}*/
+
+.sidebar {
+    height: 100vh;
+    background-color: aquamarine;
+}
