@@ -8,9 +8,9 @@ import Login from "./views/Login.js";
 import LoginEvent from "./auth.js";
 import Register from "./views/Register.js"
 import {RegisterEvent} from "./views/Register.js";
-import Profile, {UserEvents} from "./views/UserIndex.js";
 import logout, {logoutEvent} from "./views/logout.js";
 import Admin, {AdminEvents} from "./views/AdminIndex.js";
+import PersonInfo, {PersonInfoEvents} from "./views/PersonInfo.js";
 
 /**
  * Returns the route object for a specific route based on the given URI
@@ -19,18 +19,28 @@ import Admin, {AdminEvents} from "./views/AdminIndex.js";
  */
 export default function router(URI) {
     const routes = {
+        // '/': {
+        //     returnView: Home,
+        //     state: {},
+        //     uri: '/',
+        //     title: 'Home',
+        // },
         '/': {
-            returnView: Home,
-            state: {},
-            uri: '/',
-            title: 'Home',
-        },
-        '/login': {
             returnView: Login,
-            state: {},
-            uri: '/login',
+            state: {
+            },
+            uri: '/',
             title: "Login",
             viewEvent: LoginEvent
+        },
+        '/personInfo': {
+            returnView: PersonInfo,
+            state: {
+                person: '/backendChallenge/persons/personInfo'
+            },
+            uri: '/PersonInfo',
+            title: "PersonInfo",
+            viewEvent: PersonInfoEvents
         },
         '/logout': {
             returnView: logout,
@@ -46,43 +56,11 @@ export default function router(URI) {
             title: 'Register',
             viewEvent: RegisterEvent
         },
-        '/posts': {
-            returnView: PostIndex,
-            state: {
-                posts: '/api/posts',
-                categories: '/api/cat'
-            },
-            uri: '/posts',
-            title: 'All Posts',
-            viewEvent: PostsEvent //<-- Use PostsEvent as a callback here!
-        },
-        '/about': {
-            returnView: About,
-            state: {},
-            uri: '/about',
-            title: 'About',
-        },
-        '/error': {
-            returnView: Error404,
-            state: {},
-            uri: location.pathname,
-            title: ' ERROR',
-        },
         '/loading': {
             returnView: Loading,
             state: {},
             uri: location.pathname,
             title: 'Loading...',
-        },
-        '/profile': {
-            returnView: Profile,
-            state: {
-                users: '/api/users/me'//<--- eventually the username here can be dynamic
-                // posts: '/api/posts' //<-- can pass an endpoint that finds posts for just the specific user above
-            },
-            uri: '/profile',
-            title: 'Profile',
-            viewEvent: UserEvents
         },
         '/admin': {
             returnView: Admin,

@@ -9,8 +9,12 @@ export default function Navbar(props) {
             <div>
                 <h2>sidebar</h2>
                 <ul>
-                    <li>stuff</li>
-                    <li>stuff</li>
+                    <li>
+                        stuff
+                    </li>
+                    <li>
+                        <a href="/register" class="nav-link active" data-link>Register</a>
+                    </li>
                     <li>stuff</li>
                     <li>stuff</li>
                     <li>stuff</li>
@@ -21,7 +25,9 @@ export default function Navbar(props) {
                     companyName
                 </div>
                 <div>
-                    logout
+                    ${isLoggedIn() ? `<a href="/logout" className="nav-link active" data-link>Logout</a>` :
+                            `<a href="/" className="nav-link active" data-link>Login</a>`}
+                    
                 </div>
             </div>
                 

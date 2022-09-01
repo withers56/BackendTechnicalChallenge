@@ -7,6 +7,7 @@ import com.example.backendchallenge.data.PersonRepository;
 import jdk.swing.interop.SwingInterOpUtils;
 import lombok.AllArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.oauth2.provider.OAuth2Authentication;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
@@ -27,6 +28,11 @@ public class PersonController {
     @GetMapping
     private List<Person> getAllPersons () {
         return personRepository.findAll();
+    }
+
+    @GetMapping("personInfo")
+    private Person getPersonLoggedIn(OAuth2Authentication auth) {
+        return personRepository.findByUsername(auth.getName());
     }
 
     @PostMapping("addPerson")
