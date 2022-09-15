@@ -17,7 +17,10 @@ export default function Login(props) {
                         <label for="password" class="form-label">Password</label>
                         <input type="password" class="form-control background-card-dark" id="password">
                       </div>
-                      <button type="submit" class="btn btn-primary" id="login-btn" value="Log in">Login</button>
+                      <div class="d-flex">
+                        <button type="submit" class="btn btn-primary" id="login-btn" value="Log in">Login</button>
+                        <span class="d-flex align-items-center mx-2">Not Registered?<a href="/register" data-link>Register here.</a></span>
+                      </div>
                         </form>
                       </div>
                     </div>

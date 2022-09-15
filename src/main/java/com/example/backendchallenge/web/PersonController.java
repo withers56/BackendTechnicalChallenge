@@ -41,7 +41,7 @@ public class PersonController {
         Person personToAdd = new Person();
 
         personToAdd.setUsername(newPerson.getUsername());
-
+        System.out.println(newPerson.getPassword());
         String encryptedPassword = passwordEncoder.encode(newPerson.getPassword());
         personToAdd.setPassword(encryptedPassword);
 
